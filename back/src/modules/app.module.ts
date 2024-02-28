@@ -11,7 +11,5 @@ import { UsersModule } from './users/users.module';
 export class AppModule implements OnModuleInit {
   constructor(protected appService: AppService) {}
 
-  async onModuleInit() {
-    await this.appService.run();
-  }
+  async onModuleInit() {}
 }
