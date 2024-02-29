@@ -10,7 +10,7 @@ import {
 } from '@nestjs/common';
 import { ApiTags } from '@nestjs/swagger';
 import { UsersService } from './users.service';
-import { UsersEntity } from './entity/user.entity';
+import { User } from './entity/user.entity';
 
 @ApiTags('Users')
 @Controller('users')
@@ -38,7 +38,7 @@ export class UsersController {
   }
 
   @Post()
-  async create(@Body() user: Partial<UsersEntity>) {
+  async create(@Body() user: Partial<User>) {
     try {
       const res = await this.usersService.insert(user);
       return { message: 'Success', data: res, statusCode: 201 };
@@ -48,7 +48,7 @@ export class UsersController {
   }
 
   @Patch(':id')
-  async update(@Param('id') id: string, @Body() user: Partial<UsersEntity>) {
+  async update(@Param('id') id: string, @Body() user: Partial<User>) {
     try {
       await this.usersService.update(id, user);
       return { message: 'Updated', statusCode: 200 };

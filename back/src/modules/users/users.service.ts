@@ -1,27 +1,24 @@
 import { Injectable, NotFoundException } from '@nestjs/common';
 import { InjectRepository } from '@nestjs/typeorm';
 import { Repository } from 'typeorm';
-import { UsersEntity } from './entity/user.entity';
+import { User } from './entity/user.entity';
 
 @Injectable()
 export class UsersService {
   constructor(
-    @InjectRepository(UsersEntity)
-    private usersRepository: Repository<UsersEntity>,
+    @InjectRepository(User)
+    private usersRepository: Repository<User>,
   ) {}
 
-  async find(
-    where?: Partial<UsersEntity>,
-    relations: string[] = [],
-  ): Promise<UsersEntity[]> {
+  async find(where?: Partial<User>, relations: string[] = []): Promise<User[]> {
     return await this.usersRepository.find({ where, relations });
   }
 
-  async insert(data: Partial<UsersEntity>): Promise<UsersEntity> {
+  async insert(data: Partial<User>): Promise<User> {
     return await this.usersRepository.save(data);
   }
 
-  async update(id: string, data: Partial<UsersEntity>): Promise<void> {
+  async update(id: string, data: Partial<User>): Promise<void> {
     const user = await this.usersRepository.findOne({ where: { id } });
 
     if (!user) throw new NotFoundException('Users not found');
