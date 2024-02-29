@@ -10,6 +10,6 @@ export const databaseConfig: DataSourceOptions = {
   port: parseInt(process.env.DATABASE_PORT),
   password: process.env.DATABASE_PASSWORD,
   database: process.env.DATABASE_NAME,
-  entities: ['dist/modules/**/**/*.entity{.ts,.js}'],
+  entities: ['dist/entities/**/**/*.entity{.ts,.js}'],
   migrations: ['dist/common/database/migrations/*.{ts,js}'],
 };

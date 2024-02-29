@@ -10,7 +10,7 @@ import {
 } from '@nestjs/common';
 import { ApiTags } from '@nestjs/swagger';
 import { UsersService } from './users.service';
-import { User } from './entity/user.entity';
+import { User } from '../../entities/users/user.entity';
 
 @ApiTags('Users')
 @Controller('users')
