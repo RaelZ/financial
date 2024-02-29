@@ -1,10 +1,15 @@
-import { Module } from '@nestjs/common';
-import { AppController } from './app.controller';
+import { Module, OnModuleInit } from '@nestjs/common';
+import { TypeOrmModule } from '@nestjs/typeorm';
 import { AppService } from './app.service';
+import { databaseConfig } from './common/database/database-config';
+import { UsersModule } from './modules/users/users.module';
 
 @Module({
-  imports: [],
-  controllers: [AppController],
+  imports: [TypeOrmModule.forRoot(databaseConfig), UsersModule],
   providers: [AppService],
 })
-export class AppModule {}
+export class AppModule implements OnModuleInit {
+  constructor(protected appService: AppService) {}
+
+  async onModuleInit() {}
+}

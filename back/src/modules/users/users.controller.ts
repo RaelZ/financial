@@ -1,4 +1,13 @@
-import { Body, Controller, Delete, Param, Patch, Post } from '@nestjs/common';
+import {
+  Body,
+  Controller,
+  Delete,
+  Get,
+  Param,
+  Patch,
+  Post,
+  Query,
+} from '@nestjs/common';
 import { ApiTags } from '@nestjs/swagger';
 import { UsersService } from './users.service';
 import { UsersEntity } from './entity/user.entity';
@@ -7,6 +16,26 @@ import { UsersEntity } from './entity/user.entity';
 @Controller('users')
 export class UsersController {
   constructor(private readonly usersService: UsersService) {}
+
+  @Get()
+  async findAll(@Query() relations: string[] = []) {
+    try {
+      const res = await this.usersService.find({}, relations);
+      return { message: 'Success', data: res, statusCode: 200 };
+    } catch (e) {
+      throw e;
+    }
+  }
+
+  @Get(':id')
+  async findOne(@Param('id') id: string, @Query() relations: string[] = []) {
+    try {
+      const res = await this.usersService.find({ id }, relations);
+      return { message: 'Success', data: res, statusCode: 200 };
+    } catch (e) {
+      throw e;
+    }
+  }
 
   @Post()
   async create(@Body() user: Partial<UsersEntity>) {
@@ -21,8 +50,8 @@ export class UsersController {
   @Patch(':id')
   async update(@Param('id') id: string, @Body() user: Partial<UsersEntity>) {
     try {
-      const res = await this.usersService.update(id, user);
-      return { message: 'Success', data: res, statusCode: 200 };
+      await this.usersService.update(id, user);
+      return { message: 'Updated', statusCode: 200 };
     } catch (e) {
       throw e;
     }
@@ -31,8 +60,8 @@ export class UsersController {
   @Delete(':id')
   async remove(@Param('id') id: string) {
     try {
-      const res = await this.usersService.delete(id);
-      return { message: 'Success', data: res, statusCode: 200 };
+      await this.usersService.delete(id);
+      return { message: 'Deleted', statusCode: 200 };
     } catch (e) {
       throw e;
     }

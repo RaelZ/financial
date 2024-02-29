@@ -10,6 +10,13 @@ export class UsersService {
     private usersRepository: Repository<UsersEntity>,
   ) {}
 
+  async find(
+    where?: Partial<UsersEntity>,
+    relations: string[] = [],
+  ): Promise<UsersEntity[]> {
+    return await this.usersRepository.find({ where, relations });
+  }
+
   async insert(data: Partial<UsersEntity>): Promise<UsersEntity> {
     return await this.usersRepository.save(data);
   }
