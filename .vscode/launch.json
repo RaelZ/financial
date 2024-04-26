@@ -15,6 +15,20 @@
       "envFile": "${workspaceFolder}/back/.env",
       "program": "${workspaceFolder}/back/src/main.ts",
       "outFiles": ["${workspaceFolder}/back/dist/**/*.js"]
+    },
+    {
+      "type": "node",
+      "request": "launch",
+      "name": "financial(front)",
+      "runtimeExecutable": "npm",
+      "runtimeArgs": ["run", "dev"],
+      "restart": true,
+      "console": "integratedTerminal",
+      "internalConsoleOptions": "neverOpen",
+      "skipFiles": ["<node_internals>/**", "node_modules/"],
+      "cwd": "${workspaceFolder}/front",
+      "envFile": "${workspaceFolder}/front/.env",
+      "outFiles": ["${workspaceFolder}/front/dist/**/*.js"]
     }
   ]
 }
