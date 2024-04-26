@@ -1,0 +1,20 @@
+{
+  "version": "0.2.0",
+  "configurations": [
+    {
+      "type": "node",
+      "request": "launch",
+      "name": "financial(back)",
+      "runtimeExecutable": "npm",
+      "runtimeArgs": ["run", "start:debug"],
+      "restart": true,
+      "console": "integratedTerminal",
+      "internalConsoleOptions": "neverOpen",
+      "skipFiles": ["<node_internals>/**", "node_modules/"],
+      "cwd": "${workspaceFolder}/back",
+      "envFile": "${workspaceFolder}/back/.env",
+      "program": "${workspaceFolder}/back/src/main.ts",
+      "outFiles": ["${workspaceFolder}/back/dist/**/*.js"]
+    }
+  ]
+}
