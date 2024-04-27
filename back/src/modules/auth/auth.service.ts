@@ -8,11 +8,13 @@ import { User } from 'src/entities';
 import {
   decodeToken,
   decryptPassword,
+  encryptPassword,
   generateToken,
   isTokenExpired,
 } from 'src/utils/funcs';
 import { UsersService } from '../users/users.service';
 import { ILogin } from './interfaces/login.dto';
+import { IRecoverPassword } from './interfaces/recover-password.dto';
 
 @Injectable()
 export class AuthService {
@@ -41,6 +43,19 @@ export class AuthService {
       return { token, user };
     }
     return { token: jwt, user: decodeToken(jwt) };
+  }
+
+  async recoverPassword(jwt: string, passwords: IRecoverPassword) {
+    const { password, newPassword } = passwords;
+    const decodedUser = decodeToken(jwt);
+
+    const user = await this.fetchUser({ id: decodedUser.id });
+
+    this.verifyPassword(password, user.password);
+
+    await this.usersService.update(user.id, {
+      password: encryptPassword(newPassword),
+    });
   }
 
   private validateLoginInput(user: ILogin): void {

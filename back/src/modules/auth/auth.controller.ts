@@ -4,6 +4,7 @@ import { AuthGuard } from 'src/guards/auth.guard';
 import { getToken } from 'src/utils/funcs';
 import { AuthService } from './auth.service';
 import { ILogin } from './interfaces/login.dto';
+import { IRecoverPassword } from './interfaces/recover-password.dto';
 
 @ApiTags('Auth')
 @Controller('auth')
@@ -22,5 +23,16 @@ export class AuthController {
     const jwt = getToken(authHeader);
     const res = await this.authService.renewToken(jwt);
     return { message: 'Success', data: res, statusCode: 201 };
+  }
+
+  @Post('recover-password')
+  @UseGuards(new AuthGuard())
+  async recoverPassword(
+    @Headers('Authorization') authHeader: string,
+    @Body() passwords: IRecoverPassword,
+  ) {
+    const jwt = getToken(authHeader);
+    await this.authService.recoverPassword(jwt, passwords);
+    return { message: 'Success', statusCode: 201 };
   }
 }
