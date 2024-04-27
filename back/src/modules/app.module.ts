@@ -1,6 +1,6 @@
 import { Module, OnModuleInit } from '@nestjs/common';
 import { TypeOrmModule } from '@nestjs/typeorm';
-import { databaseConfig } from '../common/database/database-config';
+import { databaseConfig } from '../common/database/database.config';
 import { AuthModule } from './auth/auth.module';
 import { UsersInfoModule } from './users-info/users-info.module';
 import { UsersModule } from './users/users.module';

@@ -6,8 +6,8 @@ import {
   ManyToOne,
   PrimaryGeneratedColumn,
 } from 'typeorm';
-import { Role } from '../roles/role.entity';
-import { User } from '../users/user.entity';
+import { Role } from './role.entity';
+import { User } from './user.entity';
 
 @Entity('users_role')
 export class UserRole {

@@ -3,8 +3,8 @@ import { ApiTags } from '@nestjs/swagger';
 import { AuthGuard } from 'src/guards/auth.guard';
 import { getToken } from 'src/utils/funcs';
 import { AuthService } from './auth.service';
-import { ILogin } from './interfaces/login.dto';
-import { IRecoverPassword } from './interfaces/recover-password.dto';
+import { ILogin } from './dtos/login.dto';
+import { IRecoverPassword } from './dtos/recover-password.dto';
 
 @ApiTags('Auth')
 @Controller('auth')

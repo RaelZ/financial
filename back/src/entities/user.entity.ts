@@ -11,8 +11,8 @@ import {
   PrimaryGeneratedColumn,
   UpdateDateColumn,
 } from 'typeorm';
-import { UserInfo } from '../user-info/user-info.entity';
-import { UserRole } from '../user-role/user-role.entity';
+import { UserInfo } from './user-info.entity';
+import { UserRole } from './user-role.entity';
 
 @Entity('users')
 export class User {

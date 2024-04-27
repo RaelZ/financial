@@ -2,7 +2,7 @@ import { ClassSerializerInterceptor, ValidationPipe } from '@nestjs/common';
 import { NestFactory, Reflector } from '@nestjs/core';
 import { config } from './config';
 import { AppModule } from './modules/app.module';
-import { enableSwagger } from './swagger.service';
+import { enableSwagger } from './swagger';
 
 const {
   api: { port },

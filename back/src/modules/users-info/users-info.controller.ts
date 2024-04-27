@@ -11,7 +11,7 @@ import {
 } from '@nestjs/common';
 import { ApiTags } from '@nestjs/swagger';
 import { AuthGuard } from 'src/guards/auth.guard';
-import { User } from '../../entities/users/user.entity';
+import { User } from '../../entities/user.entity';
 import { UsersInfoService } from './users-info.service';
 
 @ApiTags('Users Info')

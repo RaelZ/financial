@@ -13,8 +13,8 @@ import {
   isTokenExpired,
 } from 'src/utils/funcs';
 import { UsersService } from '../users/users.service';
-import { ILogin } from './interfaces/login.dto';
-import { IRecoverPassword } from './interfaces/recover-password.dto';
+import { ILogin } from './dtos/login.dto';
+import { IRecoverPassword } from './dtos/recover-password.dto';
 
 @Injectable()
 export class AuthService {

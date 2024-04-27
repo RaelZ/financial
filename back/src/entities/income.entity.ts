@@ -8,36 +8,27 @@ import {
   PrimaryGeneratedColumn,
   UpdateDateColumn,
 } from 'typeorm';
-import { User } from '../users/user.entity';
+import { User } from './user.entity';
 
-@Entity('users_info')
-export class UserInfo {
+@Entity('incomes')
+export class Income {
   @PrimaryGeneratedColumn('uuid')
   id: string;
+
+  @Column()
+  origin: string;
+
+  @Column('decimal')
+  value: number;
+
+  @Column('int')
+  recurrence: number;
 
   @Column({
     type: 'uuid',
     name: 'user_id',
-    unique: true,
   })
   userId: string;
-
-  @Column({
-    name: 'social_name',
-    nullable: true,
-  })
-  socialName?: string;
-
-  @Column({
-    name: 'full_name',
-    nullable: true,
-  })
-  fullName?: string;
-
-  @Column({
-    nullable: true,
-  })
-  phone?: string;
 
   @CreateDateColumn({ name: 'created_at', type: 'timestamp' })
   createdAt: Date;
@@ -48,7 +39,7 @@ export class UserInfo {
   @DeleteDateColumn({ name: 'deleted_at', type: 'timestamp' })
   deletedAt: Date;
 
-  @ManyToOne(() => User, (user) => user.userInfo, { onDelete: 'CASCADE' })
+  @ManyToOne(() => User, (user) => user.id)
   @JoinColumn({ name: 'user_id' })
   user: User;
 }

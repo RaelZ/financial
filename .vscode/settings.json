@@ -3,5 +3,22 @@
   "editor.formatOnSave": true,
   "editor.codeActionsOnSave": {
     "source.organizeImports": "explicit"
+  },
+  "material-icon-theme.activeIconPack": "nest",
+  "material-icon-theme.files.associations": {
+    "**.interface.ts": "less",
+    "**.type.ts": "less",
+    "**.dto.ts": "less",
+    "**.enum.ts": "less",
+    "**.entity.ts": "less",
+    "**.funcs.ts": "typescript-def",
+    "**.config.ts": "settings",
+    "**.source.ts": "settings",
+    "config.ts": "settings",
+    "swagger.ts": "swagger"
+  },
+  "material-icon-theme.folders.associations": {
+    "dtos": "interface",
+    "dto": "interface"
   }
 }

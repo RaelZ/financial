@@ -6,7 +6,7 @@ import {
 import { InjectRepository } from '@nestjs/typeorm';
 import { encryptPassword } from 'src/utils/funcs';
 import { Repository } from 'typeorm';
-import { User } from '../../entities/users/user.entity';
+import { User } from '../../entities/user.entity';
 import { RolesService } from '../roles/roles.service';
 import { UsersRolesService } from '../users-roles/users-roles.service';
 
