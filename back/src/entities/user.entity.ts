@@ -1,6 +1,6 @@
 import { ApiProperty } from '@nestjs/swagger';
 import { Exclude } from 'class-transformer';
-import { Status } from 'src/common/enums';
+import { EStatus } from 'src/common/enums';
 import {
   Column,
   CreateDateColumn,
@@ -32,13 +32,13 @@ export class User {
   @Column()
   password: string;
 
-  @ApiProperty({ enum: Status, description: 'Current status of the user' })
+  @ApiProperty({ enum: EStatus, description: 'Current status of the user' })
   @Column({
     type: 'enum',
-    enum: Status,
-    default: Status.PENDING,
+    enum: EStatus,
+    default: EStatus.PENDING,
   })
-  status: Status;
+  status: EStatus;
 
   @CreateDateColumn({ name: 'created_at', type: 'timestamp' })
   createdAt: Date;

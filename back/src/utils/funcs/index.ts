@@ -1,1 +1,1 @@
-export * from './security.funcs';
+export * from './security.func';

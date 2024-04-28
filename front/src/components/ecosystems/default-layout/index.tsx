@@ -1,3 +1,4 @@
+import Providers from "@/components/molecules/providers"
 import Layout from "@/components/organism/layout"
 import { TChildren } from "@/models/types"
 import { Inter } from "next/font/google"
@@ -13,7 +14,9 @@ const DefaultLayout: React.FC<TChildren> = ({ children }) => {
         <link rel="icon" href="/favicon.ico" />
       </Head>
       <body className={inter.className}>
-        <Layout>{children}</Layout>
+        <Providers>
+          <Layout>{children}</Layout>
+        </Providers>
       </body>
     </html>
   )

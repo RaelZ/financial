@@ -31,7 +31,7 @@ export class AuthService {
 
     const token = generateToken({ password: userFound.password, ...userFound });
 
-    return { token, userFound };
+    return { token, user: userFound };
   }
 
   async renewToken(jwt: string) {

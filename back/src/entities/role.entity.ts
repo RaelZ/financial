@@ -1,4 +1,4 @@
-import { Status } from 'src/common/enums';
+import { EStatus } from 'src/common/enums';
 import {
   Column,
   CreateDateColumn,
@@ -21,9 +21,9 @@ export class Role {
 
   @Column({
     type: 'enum',
-    enum: Status,
+    enum: EStatus,
   })
-  status: Status;
+  status: EStatus;
 
   @CreateDateColumn({ name: 'created_at', type: 'timestamp' })
   createdAt: Date;

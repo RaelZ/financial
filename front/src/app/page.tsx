@@ -1,9 +1,14 @@
+import HomePage from "@/components/ecosystems/home-page"
+import { Metadata } from "next"
 import React from "react"
 
-const HomePage: React.FC = () => {
-  return (
-    <main className="flex w-full min-h-screen flex-col items-center justify-between p-24"></main>
-  )
+export const metadata: Metadata = {
+  title: "Financial",
+  description: "A financial application",
 }
 
-export default HomePage
+const Page: React.FC = () => {
+  return <HomePage />
+}
+
+export default Page

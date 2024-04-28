@@ -11,9 +11,12 @@
     "**.dto.ts": "less",
     "**.enum.ts": "less",
     "**.entity.ts": "less",
-    "**.funcs.ts": "typescript-def",
+    "**.func.ts": "typescript-def",
     "**.config.ts": "settings",
     "**.source.ts": "settings",
+    "**.context.ts": "react",
+    "**.provider.tsx": "react",
+    "**.hooks.ts": "react",
     "config.ts": "settings",
     "swagger.ts": "swagger"
   },
